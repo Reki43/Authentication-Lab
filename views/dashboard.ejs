@@ -1,3 +1,19 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<a href="/auth/logout" class="btn btn-secondary">Logout</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <p>Welcome, <%= user.name %></p>
+
+  <!-- Admin-only section -->
+  <% if (user.role === 'admin') { %>
+    <p><a href="/admin">Manage Sessions</a></p>
+  <% } %>
+
+  <!-- Logout Button -->
+  <p><a href="/auth/logout">Logout</a></p>
+</body>
+</html>
